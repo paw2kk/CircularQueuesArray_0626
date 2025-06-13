@@ -10,6 +10,7 @@ class Queues {
         FRONT = -1;
         REAR = -1;
     }
+
     void insert(){
         int num;
         cout << "Enter a nummber: ";
@@ -36,6 +37,7 @@ class Queues {
         }
         queue_array[REAR] = num;
     }
+
     void remove(){
         //Cek apakah antrian kosong
         if(FRONT == -1){
@@ -58,6 +60,7 @@ class Queues {
             FRONT = FRONT + 1;
         }
     }
+
     void display(){
         int FRONT_position = FRONT;
         int REAR_position = REAR;
@@ -73,12 +76,44 @@ class Queues {
         //jika FRONT_position <= REAR_postion,iterasi dari FRONT hingga REAR
         if (FRONT_position <= REAR_position){
             while (FRONT_position <= REAR_position){
-                
+                cout << queue_array[FRONT_position] << "   ";
+                FRONT_position++;
             }
+            cout << endl;
         }
+        else 
+        //JIka FRONT_position > REAR_position, iterasi dari FRONT hingga akhir
+        while (FRONT_position <= max - 1){
+            cout << queue_array[FRONT_position] << "   ";
+            FRONT_position++;
+        }
+        
+        FRONT_position = 0;
+
+        //iterasi dari awal array hinga REAR
+        while (FRONT_position <= REAR_position){
+            cout << queue_array[FRONT_position] << "   ";
+            FRONT_position++;
+        }
+        cout << endl;
     }
-}
+};
 
 int main(){
+    Queues q;
+    char ch;
 
+    while (true){
+        try{
+            cout << "Menu" << endl;
+            cout << "1. Implement insert operation" << endl;
+            cout << "2. Implement delete operation" << endl;
+            cout << "3. Display values" << endl;
+            cout << "4. Exit" << endl;
+            cout << "Enter your choice (1-4): " 
+            cin >> ch;
+            cout << endl;
+
+        }
+    }
 }
