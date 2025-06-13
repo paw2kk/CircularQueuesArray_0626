@@ -13,7 +13,7 @@ class Queues {
 
     void insert(){
         int num;
-        cout << "Enter a nummber: ";
+        cout << "Enter a number: ";
         cin >> num;
         cout << endl;
         
@@ -44,7 +44,7 @@ class Queues {
             cout << "Queue underflow\n";
             return;
         }
-        cout << "\The element deleted from the queue is: " << queue_array[FRONT];
+        cout << "\nThe element deleted from the queue is: " << queue_array[FRONT];
 
 
         //Cek jika antrian hanya memiliki satu elemen
@@ -97,6 +97,7 @@ class Queues {
         }
         cout << endl;
     }
+}
 };
 
 int main(){
@@ -110,9 +111,16 @@ int main(){
             cout << "2. Implement delete operation" << endl;
             cout << "3. Display values" << endl;
             cout << "4. Exit" << endl;
-            cout << "Enter your choice (1-4): " 
+            cout << "Enter your choice (1-4): ";
             cin >> ch;
             cout << endl;
+
+                switch(ch){
+                    case'1' : {
+                        q.isnert
+                    }       
+                }
+
 
         }
     }
