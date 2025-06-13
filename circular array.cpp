@@ -115,13 +115,19 @@ int main(){
             cin >> ch;
             cout << endl;
 
-                switch(ch){
-                    case'1' : {
-                        q.isnert
-                    }       
-                }
-
-
+     switch(ch){
+    case '1' : {
+       q.isnert();
+       break;    
+             }       
+        }
+    case '2' : {
+        q.remove();
+        break;
+    }
+    case '3':{
+        q.display
+    }
         }
     }
 }
