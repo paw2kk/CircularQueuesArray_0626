@@ -42,7 +42,7 @@ class Queues {
             cout << "Queue underflow\n";
             return;
         }
-        cout << "\The element deleted from the queue is: " << queue_aarray[FRONT];
+        cout << "\The element deleted from the queue is: " << queue_array[FRONT];
 
 
         //Cek jika antrian hanya memiliki satu elemen
@@ -51,8 +51,15 @@ class Queues {
             REAR = -1;
         }
         else{
-            //Jika elemen yang dihapus berada di posisi terakhir array,kembali ke 
+            //Jika elemen yang dihapus berada di posisi terakhir array,kembali 
+            if (FRONT == max -1)
+            FRONT = 0;
+            else 
+            FRONT = FRONT + 1;
         }
+    }
+    void display(){
+        
     }
 }
 
