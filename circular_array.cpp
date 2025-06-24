@@ -1,44 +1,105 @@
+
+/**
+ * @mainpage Documentation Circular Queues
+ *
+ * @section Introduction
+ * Project ini Merupakan project struktur data
+ * menggunakan struktur data queues dengan pendekatan circular arrays.abort
+ *
+ * @section Operations
+ * Project ini memiliki beberapa operasi antara lain:
+ * 1. Insert
+ * 2. Delete
+ * 3. Display
+ *
+ * @section Cara penggunaan
+ * Berikut beberaoa nenu yang bisa digunakan:
+ * 1. en queue
+ * 2. de queue
+ * 3. display
+ * 4. exit
+ *
+ * @author Profil
+ * - Nama : Aufa Maha Dana
+ * - NIM : 20240140262
+ * - Kelas : F
+
+ * @brief
+ * @version 0.1
+ * @date 2025-06-23
+ *
+ * @copyright aufa.maha.ft24@mail.umy.ac.id (c) 2025
+ *
+ *
+ */
+
 #include <iostream>
 using namespace std;
+/**
+ * @class Queues
+ * @brief class ini untuk operasi lengkap queues
+ */
 
 class Queues
 {
+    private:
+    int FRONT; ///< variable private front untuk menyimpan posisi depan antrian
+    int REAR; ///< variable private rear untuk menyimpan posisi belakang antrian
+    int max = 5;  ///< variable private max untuk menyimpan ukuran maximum antrian
+    int queue_array[5]; ///< variable private queue_array untuk menyimpan elemen antrian
+
     int FRONT, REAR, max = 5;
     int queue_array[5];
 
 public:
+/**
+ * @brief Construct a new Queues object
+ * set default queues at null
+ * with front = -1 and rear = -1
+ */
     Queues()
     {
         FRONT = -1;
         REAR = -1;
     }
-
-   void insert(){
-        int num;
+/**
+ * @brief method untuk memasukkan data dalam antrian
+ * data dimasukkan dalam variable queue_array
+ */
+    void insert()
+    {
+        int num; ///< variable num untuk menyimpan nilai 
         cout << "Enter a number: ";
         cin >> num;
         cout << endl;
 
-        //Cek apakah antrian penuh
-        if((FRONT == 0 && REAR == max -1)||(FRONT == REAR + 1)){
+        // Cek apakah antrian penuh
+        if ((FRONT == 0 && REAR == max - 1) || (FRONT == REAR + 1))
+        {
             cout << "\nQueue overflow\n";
             return;
         }
-        
-        //cek apakah antrian kosong
-        if (FRONT == -1) {
+
+        // cek apakah antrian kosong
+        if (FRONT == -1)
+        {
             FRONT = 0;
-            REAR = 0;     
-        }
-        else{
-            // jika rear berada di posisi terakhir array, kembali ke awal array
-            if (REAR == max-1)
             REAR = 0;
+        }
+        else
+        {
+            // jika rear berada di posisi terakhir array, kembali ke awal array
+            if (REAR == max - 1)
+                REAR = 0;
             else
-            REAR = REAR +1;
+                REAR = REAR + 1;
         }
         queue_array[REAR] = num;
     }
+    /**
+     * @brief method untuk menghapus data dalam antrian
+     * data dihapuskan dari dalam variable queue_array
+     */
     void remove()
     {
         // Cek apakah antrian kosong
@@ -64,11 +125,14 @@ public:
                 FRONT = FRONT + 1;
         }
     }
-
+/**
+ * @brief method untuk menampilkan data dalam antrian
+ * data ditampilkan yang berada dalam variable queue_array
+ */
     void display()
     {
-        int FRONT_position = FRONT;
-        int REAR_position = REAR;
+        int FRONT_position = FRONT; ///< variable front_position untuk menandakan posisi element pertama pada variable front
+        int REAR_position = REAR;///< variable rear_position untuk menandakan posisi element pertama pada variable rear
 
         // Cek apakah antrian kosong
         if (FRONT == -1)
@@ -95,23 +159,29 @@ public:
             {
                 cout << queue_array[FRONT_position] << "   ";
                 FRONT_position++;
-                 FRONT_position = 0;
+                FRONT_position = 0;
 
-        // iterasi dari awal array hinga REAR
-        while (FRONT_position <= REAR_position)
-             {
-            cout << queue_array[FRONT_position] << "   ";
-            FRONT_position++;
-             }
+                // iterasi dari awal array hinga REAR
+                while (FRONT_position <= REAR_position)
+                {
+                    cout << queue_array[FRONT_position] << "   ";
+                    FRONT_position++;
+                }
             }
-       
+
         cout << endl;
     }
 };
+/**
+ * @brief method utama untuk menjalankan program
+ * 
+ * @return int
+ */
+
 int main()
 {
-    Queues q;
-    char ch;
+    Queues q;///< objek untuk menggunakan member yang ada pada class queue
+    char ch;///< variable ch untuk menyimpan pilihan pada menu yang diberikan
 
     while (true)
     {
